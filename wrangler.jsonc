@@ -1,0 +1,15 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "prefill-home",
+	"compatibility_date": "2026-11-17",
+	// Static site: no Worker script, Cloudflare serves ./public directly.
+	"assets": {
+		"directory": "./public",
+		"not_found_handling": "404-page"
+	},
+	// Served at the apex. The prefill.here zone is on the same Cloudflare account,
+	// so the first deploy creates the DNS record and certificate.
+	"routes": [{ "pattern": "prefill.here", "custom_domain": true }],
+	"workers_dev": false,
+	"preview_urls": false
+}
