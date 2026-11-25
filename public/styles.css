@@ -167,7 +167,7 @@ svg { image-rendering: pixelated; }
   font-size: clamp(2.75rem, 1.5rem + 5vw, 5rem);
   line-height: 1.02;
   letter-spacing: -0.02em;
-  margin: 1.1rem 0 1.4rem;
+  margin: 0 0 1.4rem;
 }
 .display em { font-style: italic; }
 .lead { font-size: 1.125rem; line-height: 1.55; color: var(--fg-muted); max-width: 32rem; margin: 0 0 2rem; }
