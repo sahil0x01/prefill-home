@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Prefill</title>
-    <meta name="description" content="Prefill works on AI engineering, mostly how to run models fast and cheap. We learn in public and open-source what we build." />
+    <meta name="description" content="Prefill is about running AI models fast and cheap. We share what we learn and open-source what we build." />
     <link rel="canonical" href="https://prefill.here/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:site_name" content="Prefill" />
     <meta property="og:title" content="Prefill" />
-    <meta property="og:description" content="AI engineering, mostly how to run models fast and cheap. Learned in public, open source." />
+    <meta property="og:description" content="Running AI models fast and cheap. We share what we learn and open-source what we build." />
     <meta property="og:url" content="https://prefill.here/" />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -29,7 +29,7 @@
     <header class="topbar">
       <nav class="topbar__nav" aria-label="Primary">
         <a href="https://learn.prefill.here">Learn</a>
-        <a href="#why">Why prefill</a>
+        <a href="#why">What is prefill?</a>
         <a href="https://github.com/sahil0x01/prefill-home">GitHub</a>
       </nav>
       <a href="/" class="wordmark" aria-label="Prefill home">prefill<span class="cursor" aria-hidden="true"></span></a>
@@ -44,37 +44,37 @@
       <section class="hero">
         <div class="wrap hero__grid">
           <div class="hero__copy">
-            <span class="label">AI engineering · inference</span>
-            <h1 class="display">Make models <span class="swash">fast</span> and cheap to run.</h1>
+            <span class="label">AI inference</span>
+            <h1 class="display">Run AI models <span class="swash">fast</span> and cheap.</h1>
             <p class="lead">
-              Prefill is where we work out how to serve AI well: GPUs, kernels, batching, caching, and the numbers behind them.
-              We write down what we learn and open-source what we build.
+              Prefill is about running AI models well.
+              We share what we learn and open-source what we build.
             </p>
             <div class="ctas">
-              <a class="btn btn--primary pixel" href="https://learn.prefill.here">Read the notebook <span data-sprite="arrow"></span></a>
-              <a class="btn pixel" href="#why">Why “prefill”?</a>
+              <a class="btn btn--primary pixel" href="https://learn.prefill.here">Start learning <span data-sprite="arrow"></span></a>
+              <a class="btn pixel" href="#why">What is prefill?</a>
             </div>
           </div>
 
-          <figure class="timeline pixel" id="timeline" aria-label="Animation: the prompt is processed in one forward pass, then output tokens are generated one pass at a time.">
+          <figure class="timeline pixel" id="timeline" aria-label="Animation: the model reads the whole prompt in one step, then writes the answer one token per step.">
             <div class="timeline__head">
-              <span class="label">One request, step by step</span>
+              <span class="label">How a model answers</span>
               <span class="label flag" id="ttft" hidden>First token</span>
             </div>
             <div class="lane lane--prefill">
-              <span class="lane__name">Prefill<small>at once</small></span>
+              <span class="lane__name">Prefill<small>reads</small></span>
               <div class="cells" data-lane="prefill"></div>
             </div>
             <div class="lane lane--decode">
-              <span class="lane__name">Decode<small>one by one</small></span>
+              <span class="lane__name">Decode<small>writes</small></span>
               <div class="cells" data-lane="decode"></div>
             </div>
             <div class="timeline__foot">
-              <div class="stat"><span class="label">Passes</span><b id="s-pass">0</b></div>
-              <div class="stat"><span class="label">Tokens in</span><b id="s-in">0</b></div>
-              <div class="stat"><span class="label">Tokens out</span><b id="s-out">0</b></div>
+              <div class="stat"><span class="label">Steps</span><b id="s-pass">0</b></div>
+              <div class="stat"><span class="label">Read</span><b id="s-in">0</b></div>
+              <div class="stat"><span class="label">Written</span><b id="s-out">0</b></div>
             </div>
-            <figcaption class="timeline__note">32 prompt tokens go through in a single pass. Every output token needs a pass of its own.</figcaption>
+            <figcaption class="timeline__note">The model reads the whole prompt in one step. Then it writes the answer one token per step.</figcaption>
           </figure>
         </div>
       </section>
@@ -83,12 +83,12 @@
       <section class="section" id="why">
         <div class="wrap">
           <div class="section__head">
-            <span class="label">Why the name</span>
-            <h2 class="h2">Every request starts with <em>prefill</em>.</h2>
+            <span class="label">The name</span>
+            <h2 class="h2">What is <em>prefill</em>?</h2>
             <p>
-              Before a language model writes a word, it reads your whole prompt in one forward pass and fills its KV cache.
-              Then it decodes, one token at a time, until it's done. Those two phases behave very differently,
-              and most of what makes an AI product feel quick, or cost less, comes down to handling both well.
+              When you send a prompt to an AI model, it works in two steps.
+              First it reads your whole prompt at once. That's prefill.
+              Then it writes the answer one token at a time. That's decode.
             </p>
           </div>
 
@@ -96,27 +96,27 @@
             <article class="phase pixel">
               <span class="label">Phase 1</span>
               <h3>Prefill</h3>
-              <p>The model processes every prompt token in parallel. Big matrix multiplies, the GPU at full tilt.</p>
+              <p>Reads your whole prompt at once.</p>
               <dl>
-                <dt>Bound by</dt><dd>Compute</dd>
-                <dt>Sets</dt><dd>Time to first token</dd>
-                <dt>Grows with</dt><dd>Prompt length</dd>
+                <dt>Limited by</dt><dd>GPU compute</dd>
+                <dt>Affects</dt><dd>Wait for the first word</dd>
+                <dt>Slower with</dt><dd>Longer prompts</dd>
               </dl>
             </article>
             <article class="phase pixel">
               <span class="label">Phase 2</span>
               <h3>Decode</h3>
-              <p>One new token per step. Each step reads all the weights and the cache for very little math.</p>
+              <p>Writes the answer one token at a time.</p>
               <dl>
-                <dt>Bound by</dt><dd>Memory bandwidth</dd>
-                <dt>Sets</dt><dd>Tokens per second</dd>
-                <dt>Grows with</dt><dd>Output length</dd>
+                <dt>Limited by</dt><dd>Memory speed</dd>
+                <dt>Affects</dt><dd>How fast the answer streams</dd>
+                <dt>Slower with</dt><dd>Longer answers</dd>
               </dl>
             </article>
           </div>
           <p class="phases__note muted">
-            We named ourselves after the first step because that's where every request begins, and because we like the part people wait for.
-            <a class="link" href="https://learn.prefill.here">The notebook</a> goes deeper.
+            We work on making both steps fast and cheap.
+            <a class="link" href="https://learn.prefill.here">Learn</a> explains it in more detail.
           </p>
         </div>
       </section>
@@ -125,8 +125,8 @@
       <section class="section" id="work">
         <div class="wrap">
           <div class="section__head">
-            <span class="label">What we're making</span>
-            <h2 class="h2">Things you can use today.</h2>
+            <span class="label">Projects</span>
+            <h2 class="h2">What we've built.</h2>
           </div>
           <ol class="projects">
             <li class="project">
@@ -134,7 +134,7 @@
                 <span class="project__num">01</span>
                 <span>
                   <span class="project__title">Learn<small>learn.prefill.here</small></span>
-                  <span class="project__desc muted">Our open notebook on AI engineering. Short notes, calculators you can check our numbers with, and projects you can build yourself.</span>
+                  <span class="project__desc muted">Short notes, calculators and hands-on projects about AI inference.</span>
                 </span>
                 <span class="label status status--live">Live</span>
               </a>
@@ -143,8 +143,8 @@
               <div>
                 <span class="project__num">02</span>
                 <span>
-                  <span class="project__title">Next up</span>
-                  <span class="project__desc">We'll list new tools here as they ship. Watch the notebook for what we're working on.</span>
+                  <span class="project__title">More</span>
+                  <span class="project__desc">More projects coming soon.</span>
                 </span>
                 <span class="label status">Soon</span>
               </div>
@@ -158,23 +158,23 @@
         <div class="wrap">
           <div class="section__head">
             <span class="label">How we work</span>
-            <h2 class="h2">In the open, with the math shown.</h2>
+            <h2 class="h2">Open and simple.</h2>
           </div>
           <div class="principles">
             <div class="principle">
               <span data-sprite="note" data-size="4"></span>
               <h3>Learn in public</h3>
-              <p>We write short notes as we figure things out, not polished reports months later. If something's wrong, you can see it and tell us.</p>
+              <p>We share notes as we learn. If something is wrong, tell us.</p>
             </div>
             <div class="principle">
               <span data-sprite="widget" data-size="4"></span>
               <h3>Show the numbers</h3>
-              <p>Memory, throughput and cost come with calculators, so you can plug in your own model and hardware instead of trusting ours.</p>
+              <p>Calculators let you check every number with your own model and GPU.</p>
             </div>
             <div class="principle">
               <span data-sprite="project" data-size="4"></span>
-              <h3>Open by default</h3>
-              <p>Code is MIT, writing is CC BY 4.0. Everything lives on GitHub. Reuse anything; just credit Prefill.</p>
+              <h3>Open source</h3>
+              <p>Code is MIT. Writing is CC BY 4.0. Everything is on GitHub.</p>
             </div>
           </div>
         </div>
@@ -182,8 +182,8 @@
 
       <section class="band">
         <div class="wrap band__inner">
-          <h2 class="h2">Every token counts. Start with the notes.</h2>
-          <a class="btn btn--sun pixel" href="https://learn.prefill.here">Go to learn.prefill.here <span data-sprite="arrow"></span></a>
+          <h2 class="h2">Want to learn how AI inference works?</h2>
+          <a class="btn btn--sun pixel" href="https://learn.prefill.here">Go to Learn <span data-sprite="arrow"></span></a>
         </div>
       </section>
     </main>
