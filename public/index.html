@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Prefill</title>
-    <meta name="description" content="Prefill is about running AI models fast and cheap. We share what we learn and open-source what we build." />
+    <meta name="description" content="Prefill shares what we learn about AI, mostly inference, and builds open-source, self-hostable AI products." />
     <link rel="canonical" href="https://prefill.here/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:site_name" content="Prefill" />
     <meta property="og:title" content="Prefill" />
-    <meta property="og:description" content="Running AI models fast and cheap. We share what we learn and open-source what we build." />
+    <meta property="og:description" content="Prefill shares what we learn about AI, mostly inference, and builds open-source, self-hostable AI products." />
     <meta property="og:url" content="https://prefill.here/" />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -29,7 +29,7 @@
     <header class="topbar">
       <nav class="topbar__nav" aria-label="Primary">
         <a href="https://learn.prefill.here">Learn</a>
-        <a href="#why">What is prefill?</a>
+        <a href="#why">Why Prefill?</a>
         <a href="https://github.com/sahil0x01/prefill-home">GitHub</a>
       </nav>
       <a href="/" class="wordmark" aria-label="Prefill home">prefill<span class="cursor" aria-hidden="true"></span></a>
@@ -44,14 +44,15 @@
       <section class="hero">
         <div class="wrap hero__grid">
           <div class="hero__copy">
-            <h1 class="display">Run AI models <span class="swash">fast</span> and cheap.</h1>
+            <h1 class="display">We learn AI in <span class="swash">public</span> and build it in the open.</h1>
             <p class="lead">
-              Prefill is about running AI models well.
-              We share what we learn and open-source what we build.
+              Prefill shares what we learn about AI, mostly inference.
+              We also build AI products: inference tools, agents and more.
+              All open source, all self-hostable.
             </p>
             <div class="ctas">
-              <a class="btn btn--primary pixel" href="https://learn.prefill.here">Start learning <span data-sprite="arrow"></span></a>
-              <a class="btn pixel" href="#why">What is prefill?</a>
+              <a class="btn btn--primary pixel" href="https://learn.prefill.here">Read what we learn <span data-sprite="arrow"></span></a>
+              <a class="btn pixel" href="#work">See what we build</a>
             </div>
           </div>
 
@@ -67,8 +68,63 @@
               <span class="lane__name">Decode<small>writes</small></span>
               <div class="cells" data-lane="decode"></div>
             </div>
-            <figcaption class="timeline__note">The model reads the whole prompt in one step. Then it writes the answer one token per step.</figcaption>
+            <figcaption class="timeline__note">How a model answers: it reads the whole prompt in one step, then writes one token per step.</figcaption>
           </figure>
+        </div>
+      </section>
+
+      <!-- What we do -->
+      <section class="section" id="what">
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="h2">What we do.</h2>
+          </div>
+          <div class="principles">
+            <div class="principle">
+              <span data-sprite="note" data-size="4"></span>
+              <h3>Share what we learn</h3>
+              <p>Notes on AI, mostly inference. Also agents, GPUs, fine-tuning and whatever else we run into.</p>
+            </div>
+            <div class="principle">
+              <span data-sprite="widget" data-size="4"></span>
+              <h3>Build AI products</h3>
+              <p>Inference tools, agents and other AI-native products.</p>
+            </div>
+            <div class="principle">
+              <span data-sprite="project" data-size="4"></span>
+              <h3>Keep it open</h3>
+              <p>Everything is open source. Host it yourself, on your own servers.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="section" id="work">
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="h2">What we've built.</h2>
+          </div>
+          <ol class="projects">
+            <li class="project">
+              <a href="https://learn.prefill.here">
+                <span class="project__num">01</span>
+                <span>
+                  <span class="project__title">Learn<small>learn.prefill.here</small></span>
+                  <span class="project__desc muted">Notes, calculators and hands-on projects on AI, mostly inference.</span>
+                </span>
+              </a>
+            </li>
+            <li class="project project--soon">
+              <div>
+                <span class="project__num">02</span>
+                <span>
+                  <span class="project__title">More</span>
+                  <span class="project__desc">More products coming soon. Open source and self-hostable.</span>
+                </span>
+              </div>
+            </li>
+          </ol>
         </div>
       </section>
 
@@ -76,11 +132,12 @@
       <section class="section" id="why">
         <div class="wrap">
           <div class="section__head">
-            <h2 class="h2">What is <em>prefill</em>?</h2>
+            <h2 class="h2">Why <em>Prefill</em>?</h2>
             <p>
               When you send a prompt to an AI model, it works in two steps.
               First it reads your whole prompt at once. That's prefill.
               Then it writes the answer one token at a time. That's decode.
+              Every answer starts with prefill, so we named ourselves after it.
             </p>
           </div>
 
@@ -104,71 +161,12 @@
               </ul>
             </article>
           </div>
-          <p class="phases__note muted">
-            We work on making both steps fast and cheap.
-            <a class="link" href="https://learn.prefill.here">Learn</a> explains it in more detail.
-          </p>
-        </div>
-      </section>
-
-      <!-- What we're making -->
-      <section class="section" id="work">
-        <div class="wrap">
-          <div class="section__head">
-            <h2 class="h2">What we've built.</h2>
-          </div>
-          <ol class="projects">
-            <li class="project">
-              <a href="https://learn.prefill.here">
-                <span class="project__num">01</span>
-                <span>
-                  <span class="project__title">Learn<small>learn.prefill.here</small></span>
-                  <span class="project__desc muted">Short notes, calculators and hands-on projects about AI inference.</span>
-                </span>
-              </a>
-            </li>
-            <li class="project project--soon">
-              <div>
-                <span class="project__num">02</span>
-                <span>
-                  <span class="project__title">More</span>
-                  <span class="project__desc">More projects coming soon.</span>
-                </span>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <!-- How we work -->
-      <section class="section" id="how">
-        <div class="wrap">
-          <div class="section__head">
-            <h2 class="h2">Open and simple.</h2>
-          </div>
-          <div class="principles">
-            <div class="principle">
-              <span data-sprite="note" data-size="4"></span>
-              <h3>Learn in public</h3>
-              <p>We share notes as we learn. If something is wrong, tell us.</p>
-            </div>
-            <div class="principle">
-              <span data-sprite="widget" data-size="4"></span>
-              <h3>Show the numbers</h3>
-              <p>Calculators let you check every number with your own model and GPU.</p>
-            </div>
-            <div class="principle">
-              <span data-sprite="project" data-size="4"></span>
-              <h3>Open source</h3>
-              <p>Code is MIT. Writing is CC BY 4.0. Everything is on GitHub.</p>
-            </div>
-          </div>
         </div>
       </section>
 
       <section class="band">
         <div class="wrap band__inner">
-          <h2 class="h2">Want to learn how AI inference works?</h2>
+          <h2 class="h2">See what we've learned so far.</h2>
           <a class="btn btn--sun pixel" href="https://learn.prefill.here">Go to Learn <span data-sprite="arrow"></span></a>
         </div>
       </section>

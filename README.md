@@ -1,6 +1,6 @@
 # prefill.here
 
-The home page for Prefill, at **https://prefill.here**. Prefill works on AI engineering, mostly how to run models fast and cheap. The notebook lives at [learn.prefill.here](https://learn.prefill.here) ([source](https://github.com/sahil0x01/prefill-learn)).
+The home page for Prefill, at **https://prefill.here**. Prefill shares what we learn about AI, mostly inference, and builds open-source, self-hostable AI products. The notebook lives at [learn.prefill.here](https://learn.prefill.here) ([source](https://github.com/sahil0x01/prefill-learn)).
 
 Plain HTML and CSS in `public/`, no build step. Served as static assets by a Cloudflare Worker (`prefill-home`). It uses the same visual system as Learn.
 
