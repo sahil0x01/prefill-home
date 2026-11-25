@@ -149,6 +149,7 @@ svg { image-rendering: pixelated; }
   align-items: center;
   gap: 2px;
 }
+.wordmark .logo { margin-right: 0.5rem; }
 .theme { justify-self: end; width: 36px; height: 36px; display: grid; place-items: center; }
 .theme:hover { background: var(--surface-2); }
 .dark .only-light, html:not(.dark) .only-dark { display: none; }
