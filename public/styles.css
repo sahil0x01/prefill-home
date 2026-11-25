@@ -86,13 +86,13 @@ svg { image-rendering: pixelated; }
     0 var(--px) 0 0 var(--ink),
     var(--drop, 0px) calc(var(--px) + var(--drop, 0px)) 0 0 var(--shadow);
 }
+/* Solid band over the whole glyph box, so letters with tails (p, g, y) stay inside it. */
 .swash {
-  background-image: linear-gradient(var(--sun), var(--sun));
-  background-repeat: no-repeat;
-  background-size: 100% 0.82em;
-  background-position: 0 0.24em;
-  padding: 0 0.1em;
+  background: var(--sun);
+  padding: 0 0.12em;
   color: var(--sun-fg);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 .cursor {
   display: inline-block;
