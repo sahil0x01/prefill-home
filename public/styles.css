@@ -217,9 +217,8 @@ svg { image-rendering: pixelated; }
 .phase { padding: 1.5rem; background: var(--surface); --drop: 4px; }
 .phase h3 { font-family: var(--font-serif); font-weight: 500; font-size: 1.75rem; margin: 0 0 0.4rem; letter-spacing: -0.01em; }
 .phase p { margin: 0 0 1.25rem; color: var(--fg-muted); }
-.phase dl { display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1.25rem; margin: 0; padding-top: 1rem; border-top: var(--px) solid var(--border); font-size: 0.875rem; }
-.phase dt { font-family: var(--font-mono); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--fg-subtle); padding-top: 0.2rem; }
-.phase dd { margin: 0; font-weight: 550; }
+.phase ul { list-style: none; margin: 0; padding: 1rem 0 0; border-top: var(--px) solid var(--border); display: grid; gap: 0.4rem; font-size: 0.9375rem; font-weight: 550; }
+.phase li::before { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--ink); margin: 0 0.6rem 0.15em 0; }
 .phases__note { margin: 2rem 0 0; max-width: 40rem; font-size: 1.0625rem; }
 
 /* projects */
@@ -227,7 +226,7 @@ svg { image-rendering: pixelated; }
 .project { border-bottom: var(--px) solid var(--border); }
 .project a, .project > div {
   display: grid;
-  grid-template-columns: 3rem 1fr auto;
+  grid-template-columns: 3rem 1fr;
   gap: 1rem;
   align-items: center;
   padding: 1.5rem 0.75rem;
