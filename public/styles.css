@@ -194,7 +194,7 @@ svg { image-rendering: pixelated; }
 }
 .stat b { display: block; font-family: var(--font-mono); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin-top: 0.45rem; font-variant-numeric: tabular-nums; }
 .stat .label { white-space: nowrap; }
-.flag { color: var(--fg); background: var(--sun); padding: 0.2rem 0.35rem; }
+.flag { color: var(--sun-fg); background: var(--sun); padding: 0.2rem 0.35rem; }
 .flag[hidden] { display: inline-block; visibility: hidden; }
 .timeline__note { margin: 0.9rem 0 0; font-size: 0.75rem; color: var(--fg-subtle); }
 
